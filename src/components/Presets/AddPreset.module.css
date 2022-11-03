@@ -1,0 +1,7 @@
+.input {
+  display: inline-block;
+}
+
+.input > label {
+  display: inline-block;
+}

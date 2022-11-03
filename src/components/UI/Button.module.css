@@ -1,0 +1,35 @@
+.button {
+  position: relative;
+  font: inherit;
+  text-align: center;
+  padding: 10px 3px;
+  margin: 4px;
+  border: 1px solid #8b005d;
+  color: white;
+  background: #8b005d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button::before {
+  content: '';
+  float: left;
+  padding-top: 25%;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover,
+.button:active {
+  background: #9fd3ed;
+  color: #022d43;
+  font-weight: bold;
+  border-color: #022d43;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 768px) {
+}

@@ -1,0 +1,7 @@
+.selected {
+  background: #9fd3ed;
+  color: #022d43;
+  font-weight: bold;
+  border-color: #022d43;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}

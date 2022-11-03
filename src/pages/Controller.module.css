@@ -1,0 +1,24 @@
+@media screen and (min-width: 600px) {
+  .controller-page {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 3fr;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .scene-btns {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .preset-btns {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .pan-tilt-btns {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+  }
+}
