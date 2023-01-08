@@ -50,13 +50,13 @@ const configureStore = () => {
         isCurrent: false,
       },
       {
-        name: 'Sacrament Graphic',
+        name: 'Sacrament-Graphic',
         isShow: true,
         description: 'Picture of Christ with Sacrament background music',
         isCurrent: false,
       },
       {
-        name: 'Sacrament Video',
+        name: 'Sacrament-Video',
         isShow: true,
         description: "Video of Christ's Atonement",
         isCurrent: false,
@@ -64,11 +64,11 @@ const configureStore = () => {
       {
         name: 'Computer',
         isShow: false,
-        description: "Feed from presentor's computer",
+        description: "Feed from the presenter's computer",
         isCurrent: false,
       },
       {
-        name: 'Computer s-speaker',
+        name: 'Computer-speaker',
         isShow: false,
         description: 'Computer Feed with a small speaker window',
         isCurrent: false,
