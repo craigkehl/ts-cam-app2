@@ -74,7 +74,7 @@ const configureStore = () => {
         isCurrent: false,
       },
       {
-        name: 'Computer m-speaker',
+        name: 'Computer-m-speaker',
         isShow: false,
         description: 'Speaker with a small computer feed window',
         isCurrent: false,
