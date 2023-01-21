@@ -10,12 +10,18 @@ import ExtrasIcon from '@mui/icons-material/Ballot';
 import MenuIcon from '@mui/icons-material/Menu';
 import ProfileIcon from '@mui/icons-material/Face';
 import ExitIcon from '@mui/icons-material/ExitToApp';
+import SlideshowIcon from '@mui/icons-material/Slideshow';
 
 const menuItems = [
   {
     name: 'Controller',
     icon: ControlIcon,
     path: '/controller',
+  },
+  {
+    name: 'Projector',
+    icon: SlideshowIcon,
+    path: '/projector',
   },
   {
     name: 'Profile',

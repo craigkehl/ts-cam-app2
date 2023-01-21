@@ -10,6 +10,7 @@ import ConfigPTZ from './pages/configure/config-ptz';
 import ConfigExtras from './pages/configure/config-extras';
 
 import Profile from './pages/Profile';
+import Projector from './components/projector/Projector';
 
 const App: React.FC<{ className?: string }> = (props) => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC<{ className?: string }> = (props) => {
       <main>
         <Routes>
           <Route path='/controller' element={<Controller />} />
+          <Route path='/projector' element={<Projector />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/config/presets' element={<ConfigPresets />} />
           <Route path='/config/scenes' element={<ConfigScenes />} />
