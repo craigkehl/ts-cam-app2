@@ -1,17 +1,18 @@
+import { useState } from 'react';
+
 import Card from "../UI/Card"
 import FormSwitchControl from "./FormSwitchControl"
 import RemoteKeys from "./Remote-Keys"
 
-import classes from './Projector.module.css'
-
 const Projector = () => {
+
+  const [showKeys, setShowKeys] = useState(false)
+
   return (
     <Card>
-      <div className={classes.header}>
         <h3>Projector</h3>
-        <FormSwitchControl />
-      </div>
-      <RemoteKeys />
+        <FormSwitchControl setShowKeys={setShowKeys} showKeys={showKeys} />
+      {showKeys && <RemoteKeys setShowKeys={setShowKeys}/>}
     </Card>
   )
 }

@@ -1,10 +1,10 @@
-const BASEURL: string =
-  process.env.REACT_APP_BASEURL || 'http://localhost:4000';
+const CAM_BASEURL: string =
+  process.env.REACT_APP_CAM_BASEURL || 'http://localhost:4000';
 
 export const recallPreset = async (presetId: string) => {
-  console.log(`${BASEURL}/preset/${presetId}`);
+  console.log(`${CAM_BASEURL}/preset/${presetId}`);
   try {
-    const response = await fetch(`${BASEURL}/preset/${presetId}`);
+    const response = await fetch(`${CAM_BASEURL}/preset/${presetId}`);
     if (!response.ok) {
       throw new Error('Preset not executed!');
     } else {
@@ -18,7 +18,7 @@ export const recallPreset = async (presetId: string) => {
 export const setPreset = async (presetId: string) => {
   const data = JSON.stringify({ presetId });
   try {
-    const response = await fetch(`${BASEURL}/preset`, {
+    const response = await fetch(`${CAM_BASEURL}/preset`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: data,
@@ -34,9 +34,9 @@ export const setPreset = async (presetId: string) => {
 };
 
 export const zoom = async (speed: number) => {
-  console.log(`${BASEURL}/zoom/${speed.toString()}`);
+  console.log(`${CAM_BASEURL}/zoom/${speed.toString()}`);
   try {
-    const response = await fetch(`${BASEURL}/zoom/${speed}`);
+    const response = await fetch(`${CAM_BASEURL}/zoom/${speed}`);
     if (!response.ok) {
       throw new Error('Zoom not executed!');
     } else {
@@ -48,9 +48,9 @@ export const zoom = async (speed: number) => {
 };
 
 export const move = async (pan: string, tilt: string) => {
-  console.log(`${BASEURL}/move/pan=${pan}&tilt=${tilt}`);
+  console.log(`${CAM_BASEURL}/move/pan=${pan}&tilt=${tilt}`);
   try {
-    const response = await fetch(`${BASEURL}/move/?pan=${pan}&tilt=${tilt}`);
+    const response = await fetch(`${CAM_BASEURL}/move/?pan=${pan}&tilt=${tilt}`);
     if (!response.ok) {
       throw new Error('Move not executed!');
     } else {
@@ -61,16 +61,3 @@ export const move = async (pan: string, tilt: string) => {
   }
 };
 
-export const recallScenes = async (scene: string) => {
-  console.log(`${BASEURL}/scene/${scene}`);
-  try {
-    const response = await fetch(`${BASEURL}/scene/${scene}`);
-    if (!response.ok) {
-      throw new Error('scene not executed!');
-    } else {
-      return true;
-    }
-  } catch (error) {
-    console.log('Error: ' + error);
-  }
-};

@@ -1,14 +1,34 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {
   ArrowCircleUp,
   ArrowCircleDown,
-  ArrowCircleLeftOutlined,
-  ArrowCircleRightOutlined
+  ArrowCircleLeft,
+  ArrowCircleRight
 } from '@mui/icons-material';
 
-export default function RemoteKeys() {
+import { projectorRequest } from '../../util/projector-http-request';
+
+export default function RemoteKeys({setShowKeys}) {
+
+    
+
+  const onRemoteKeyHandler = (command) => {
+    const remoteKeyCommand = `remote-key/${command}`
+    switch (command) {
+      case 'menu':
+        setShowKeys(true)
+        break;
+      case 'exit':
+        setShowKeys(false)
+        break;
+      default:
+    }
+    console.log(`Sending projector ${remoteKeyCommand}`)
+    projectorRequest(remoteKeyCommand)
+  }
+
+
   return (
     <Box sx={{
       width: 1,
@@ -20,31 +40,49 @@ export default function RemoteKeys() {
         gap={2}
         justifyItems="space-between">
         <Box gridColumn='span 4' display='flex' justifyContent='center'>
-          <Button variant="outlined" width='90%' >Menu</Button>
+          <Button
+            variant="filled"
+            width='90%'
+            onClick={onRemoteKeyHandler.bind(this, 'menu')}
+          >
+            Menu
+          </Button>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <ArrowCircleUp color="primary" fontSize='large'/>
+          <ArrowCircleUp
+            variant='filled'
+            color="primary"
+            fontSize='large'
+            onClick={onRemoteKeyHandler.bind(this, 'top')}
+          />
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <Button variant="outlined">Exit</Button>
+          <Button variant="filled"
+            onClick={onRemoteKeyHandler.bind(this, 'exit')}>Exit</Button>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <ArrowCircleLeftOutlined color="primary" fontSize='large' />
+          <ArrowCircleLeft color="primary" fontSize='large' 
+            onClick={onRemoteKeyHandler.bind(this, 'left')}/>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <Button variant="outlined">Enter</Button>
+          <Button variant="filled"
+            onClick={onRemoteKeyHandler.bind(this, 'enter')}>Enter</Button>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <ArrowCircleRightOutlined color="primary" fontSize='large' />
+          <ArrowCircleRight color="primary" fontSize='large' 
+            onClick={onRemoteKeyHandler.bind(this, 'right')}/>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <Button variant="outlined">Source</Button>
+          <Button variant="filled"
+            onClick={onRemoteKeyHandler.bind(this, 'source')}>Source</Button>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <ArrowCircleDown color="primary" fontSize='large' />
+          <ArrowCircleDown variant='filled' color="primary" fontSize='large' 
+            onClick={onRemoteKeyHandler.bind(this, 'bottom')}/>
         </Box>
         <Box gridColumn='span 4' display='flex' justifyContent='center' >
-          <Button variant="outlined">Auto</Button>
+          <Button variant="filled"
+            onClick={onRemoteKeyHandler.bind(this, 'auto')}>Auto</Button>
         </Box>
       </Box>
     </Box>

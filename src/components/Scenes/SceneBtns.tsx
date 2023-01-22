@@ -4,7 +4,7 @@ import Card from '../UI/Card';
 import Scene from './Scene';
 import { useStore } from '../../store/store';
 import { SceneState } from '../../store/scenes-store';
-import { recallScenes } from '../../util/http-requests';
+import { recallScenes } from '../../util/obs-http-requests';
 import classes from './SceneBtns.module.css';
 
 const SceneBtns: React.FC<{

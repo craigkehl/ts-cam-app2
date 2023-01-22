@@ -4,7 +4,7 @@ import React, {
   useState,
   // TouchEventHandler,
 } from "react"
-import { move } from "../../util/http-requests"
+import { move } from "../../util/cam-http-requests"
 import classes from "./DoubleSlider.module.css"
 
 interface DoubleSliderProps {

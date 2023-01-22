@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 
-import { zoom } from '../../util/http-requests';
+import { zoom } from '../../util/cam-http-requests';
 import classes from './Slider.module.css';
 
 const Slider: React.FC<{ className: string }> = (props) => {
