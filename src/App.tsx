@@ -10,7 +10,7 @@ import ConfigPTZ from './pages/configure/config-ptz';
 import ConfigExtras from './pages/configure/config-extras';
 
 import Profile from './pages/Profile';
-import Projector from './components/projector/Projector';
+import Projector from './pages/Projector';
 
 const App: React.FC<{ className?: string }> = (props) => {
   return (
