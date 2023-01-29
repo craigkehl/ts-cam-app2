@@ -19,18 +19,18 @@ const Status = (props: Props) => {
         margin: "2rem auto",
       }}
     >
-      <Button 
-        onClick={onStatusHandler.bind(this, "power")}
-        >
+      <Button onClick={onStatusHandler.bind(this, "power")} variant='contained' >
         Power
       </Button>
       <Button 
         onClick={onStatusHandler.bind(this, "blank")}
+        variant='contained'
         >
         Blank
       </Button>
       <Button 
         onClick={onStatusHandler.bind(this, "source")}
+        variant='contained'
         >
         Source
       </Button>
