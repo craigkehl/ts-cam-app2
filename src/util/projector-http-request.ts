@@ -7,7 +7,7 @@ export async function projectorRequest(command: string) {
     if (!response.ok) {
       throw new Error(`${command} not executed!`);
     } else {
-      return true;
+      return response;
     }
   } catch (error) {
     console.log('Error: ' + error);
