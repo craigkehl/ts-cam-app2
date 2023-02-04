@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import SettingsInputHdmiIcon from '@mui/icons-material/SettingsInputHdmi';
@@ -18,34 +18,32 @@ const SourceSelect = (props: Props) => {
 
   const [projectorOn, setProjectorOn] = useState(false)
   
-  useEffect(() => {
-    if (!projectorOn && !(selectedInput === 'off')) {
-     console.log('send proj power on')
-     projectorRequest('proj/power/on')
-       .then(res => {
-         if (res && res.ok) {
-           setProjectorOn(true)
-           console.log('Proj on. Sending' + selectedInput)
+  const inputHandler = async (input: ProjectorState['projectorInput']) => {
+    switch (input) {
+      case 'off':
+        projectorRequest('power/off')
+        dispatch('CURRENT_INPUT', input)
+        setProjectorOn(false)
+        break;
 
-           projectorRequest(`proj/source/${selectedInput}`)
-         }
-       })
-    } else if (projectorOn && selectedInput === 'off') {
-      console.log('Turning proj off')
-     projectorRequest('proj/power/off')
-       .then(res => {
-         if (res && res.ok) {
-           setProjectorOn(false)
-           console.log("It's off")
-         }
-       })
-   } else {
-     projectorRequest(`proj/source/${selectedInput}`)
-   }
-  }, [selectedInput, projectorOn])
-
-  const inputHandler = (input: ProjectorState['projectorInput']) => {
-    dispatch('CURRENT_INPUT', input)
+      case 'hdmi':
+      case 'roku':
+        if (!projectorOn) {
+          const response = await projectorRequest('power/on')
+          if (response && response.ok) {
+            setProjectorOn(true)
+            dispatch('CURRENT_INPUT', input)
+            projectorRequest(`source/${input}`)
+          }
+        } else {
+          dispatch('CURRENT_INPUT', input)
+          projectorRequest(`source/${input}`)
+        }
+        break;
+    
+      default:
+        break;
+    }
   }
   
   return (
