@@ -3,3 +3,17 @@
  flex-direction: row;
  justify-content:space-between; 
 }
+
+.headercontainer {
+  display: flex;
+ flex-direction: row;
+ justify-content:space-between; 
+}
+
+.inline {
+  display: inline-block;
+}
+
+.controls {
+  display: block;
+}

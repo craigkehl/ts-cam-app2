@@ -1,22 +1,36 @@
-import { useState } from 'react';
-
+import Stack from '@mui/material/Stack'
 import Card from "../components/UI/Card"
-import FormSwitchControl from "../components/projector/FormSwitchControl"
+import SourceSelect from '../components/projector/Source-Select';
+import BlankSwitch from "../components/projector/BlankSwitch";
+import MenuControl from "../components/projector/RemoteMenu";
 import Volume from '../components/projector/Volume'
 import RemoteKeys from "../components/projector/Remote-Keys"
-import Status from '../components/projector/Status';
+
+import { useStore } from "../store/store";
+import { ProjectorState } from "../store/projector-store";
+
+import classes from './Projector.module.css'
 
 const Projector = () => {
-
-  const [showKeys, setShowKeys] = useState(false)
+  const [ state ] = useStore()
+  const input: ProjectorState['projectorInput'] = state.projectorInput
+  const inputSelected = (input !== 'off')
 
   return (
     <Card>
-      <h3>Projector</h3>
-      <FormSwitchControl setShowKeys={setShowKeys} showKeys={showKeys} />
-      <Volume min={0} max={20} defaultValue={17} />
-      {showKeys && <RemoteKeys setShowKeys={setShowKeys}/>}
-      <Status />
+      <div className={classes.headercontainer}>
+        <h3 className={classes.inline}>Projector</h3>
+      </div>
+      <SourceSelect />
+      {inputSelected && (
+        <Stack alignContent='flex-start'>
+          <Volume min={0} max={20} defaultValue={17} />
+          <Stack direction='row' justifyContent='center'>
+            <BlankSwitch />
+            <MenuControl />
+          </Stack>
+          {state.projectorShowMenuKeys && <RemoteKeys />}
+        </Stack>)}
     </Card>
   )
 }

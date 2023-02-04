@@ -7,20 +7,21 @@ import {
   ArrowCircleRight
 } from '@mui/icons-material';
 
+import { useStore } from '../../store/store'
+
 import { projectorRequest } from '../../util/projector-http-request';
 
-export default function RemoteKeys({setShowKeys}) {
-
-    
-
+export default function RemoteKeys() {
+  const [state, dispatch] = useStore();
+  
   const onRemoteKeyHandler = (command) => {
     const remoteKeyCommand = `remote-key/${command}`
     switch (command) {
       case 'menu':
-        setShowKeys(true)
+        dispatch('PROJECTOR_SHOW_MENU_KEYS', true)
         break;
       case 'exit':
-        setShowKeys(false)
+        dispatch('PROJECTOR_SHOW_MENU_KEYS', false)
         break;
       default:
     }
