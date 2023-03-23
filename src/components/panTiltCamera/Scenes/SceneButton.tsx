@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../UI/Button';
+import Button from '../../UI/Button';
 
-import classes from './Scene.module.css';
+import classes from './SceneButton.module.css';
 
 interface SceneProps extends React.PropsWithChildren<object> {
   className?: string;
@@ -12,7 +12,7 @@ interface SceneProps extends React.PropsWithChildren<object> {
   onClick: (name: string) => void;
 }
 
-const Scene = React.memo((props: SceneProps) => {
+const SceneButton = React.memo((props: SceneProps) => {
   const onClickHandler = (name: string) => {
     props.onClick(name);
   };
@@ -29,4 +29,4 @@ const Scene = React.memo((props: SceneProps) => {
   );
 });
 
-export default Scene;
+export default SceneButton;

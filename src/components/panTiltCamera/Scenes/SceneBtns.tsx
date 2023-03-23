@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Card from '../UI/Card';
-import Scene from './Scene';
-import { useStore } from '../../store/store';
-import { SceneState } from '../../store/scenes-store';
-import { recallScenes } from '../../util/http-requests';
+import Card from '../../UI/Card';
+import SceneButton from './SceneButton';
+import { useStore } from '../../../store/store';
+import { SceneState } from '../../../store/scenes-store';
+import { recallScenes } from '../../../util/obs-http-requests';
 import classes from './SceneBtns.module.css';
 
 const SceneBtns: React.FC<{
@@ -41,7 +41,7 @@ const SceneBtns: React.FC<{
           scenes.map(
             (scene: SceneState) =>
               (showHiddenList ? !scene.isShow : scene.isShow) && (
-                <Scene
+                <SceneButton
                   className={`${classes.btn} ${props.className}`}
                   key={scene.name}
                   name={scene.name}
@@ -51,7 +51,7 @@ const SceneBtns: React.FC<{
                   onClick={() => onClickHandler(scene.name)}
                 >
                   {scene.name}
-                </Scene>
+                </SceneButton>
               )
           )
         ) : (

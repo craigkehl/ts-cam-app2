@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 
-import { useStore } from '../../store/store';
-import { SceneState } from '../../store/scenes-store';
-import Input from '../../components/UI/Input';
-import Card from '../UI/Card';
+import { useStore } from '../../../store/store';
+import { SceneState } from '../../../store/scenes-store';
+import Input from '../../UI/Input';
+import Card from '../../UI/Card';
 
 import classes from './AddScene.module.css';
 

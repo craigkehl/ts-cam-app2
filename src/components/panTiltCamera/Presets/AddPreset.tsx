@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 
-import { useStore } from '../../store/store';
-import Input from '../UI/Input';
-import Zoom from '../Sliders/Slider';
-import PtzPad from '../Sliders/DoubleSlider';
+import { useStore } from '../../../store/store';
+import Input from '../../UI/Input';
+import Zoom from '../panTiltZoomControls/Slider';
+import PtzPad from '../panTiltZoomControls/TwoDimensionSlider';
 
 import classes from './AddPreset.module.css';
 

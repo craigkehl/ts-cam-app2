@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AddScene from '../../components/Scenes/AddScene';
-import SceneBtns from '../../components/Scenes/SceneBtns';
+import AddScene from '../../components/panTiltCamera/Scenes/AddScene';
+import SceneBtns from '../../components/panTiltCamera/Scenes/SceneBtns';
 
 const ConfigScenes: React.FC<{ className?: string }> = (props) => {
   return (

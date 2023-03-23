@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PresetVisibility from './Preset-visibility';
-import AddPreset from '../../../components/Presets/AddPreset';
+import AddPreset from '../../../components/panTiltCamera/Presets/AddPreset';
 import Card from '../../../components/UI/Card';
 
 import classes from './Config-presets.module.css';

@@ -1,7 +1,7 @@
 import { initStore, GlobalState } from './store';
 
 import { findSmallestMissing } from '../util/helpers';
-import { setPreset } from '../util/http-requests';
+import { setPreset } from '../util/cam-http-requests';
 
 export interface PresetState {
   isCurrent: boolean;
