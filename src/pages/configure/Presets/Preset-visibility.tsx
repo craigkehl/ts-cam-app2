@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PresetBtnGrp from '../../../components/Presets/PresetBtnGrp';
+import PresetBtnGrp from '../../../components/panTiltCamera/Presets/PresetBtnGrp';
 import Card from '../../../components/UI/Card';
 
 import classes from './Preset-visibility.module.css';

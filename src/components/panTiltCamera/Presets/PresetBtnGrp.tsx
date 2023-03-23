@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useStore } from '../../store/store';
-import { PresetState } from '../../store/presets-store';
+import { useStore } from '../../../store/store';
+import { PresetState } from '../../../store/presets-store';
 import Preset from './Preset';
-import { recallPreset } from '../../util/cam-http-requests';
+import { recallPreset } from '../../../util/cam-http-requests';
 import classes from './PresetBtnGrp.module.css';
 
 const PresetBtnGrp: React.FC<{
@@ -31,8 +31,8 @@ const PresetBtnGrp: React.FC<{
   };
 
   const presetList = (
-    <>
-      <h3 className={`${classes.title} ${props.className}`}>
+    <div className={classes.btnPanel}>
+      <h3 className={classes.title}>
         {showHiddenList ? 'Hidden ' : ''} Presets
       </h3>
       <div className={`${classes.btnGrp} ${props.className}`}>
@@ -59,7 +59,7 @@ const PresetBtnGrp: React.FC<{
           <p>No presets found.</p>
         )}
       </div>
-    </>
+    </div>
   );
 
   return <>{presetList}</>;

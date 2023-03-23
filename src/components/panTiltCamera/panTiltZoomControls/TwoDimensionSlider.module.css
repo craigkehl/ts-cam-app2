@@ -1,8 +1,8 @@
 .dblSlider {
   width: calc(100% - 4px);
   height: calc(56vw - 4px);
-  max-width: 600px;
-  max-height: 338px;
+  /* max-width: 600px; */
+  /* max-height: 338px; */
   margin: 0 auto 1rem auto;
   background-image: radial-gradient(#ca9ebb, #8b005d);
   border: 2px solid black;
@@ -12,7 +12,7 @@
 
 .dblSlider:before {
   background: #8b005d;
-  content: '';
+  content: "";
   height: 100%;
   position: absolute;
   width: 5px;
@@ -21,16 +21,10 @@
 }
 .dblSlider:after {
   background: #8b005d;
-  content: '';
+  content: "";
   height: 5px;
   left: 0%;
   position: absolute;
   top: 50%;
   width: 100%;
-}
-
-.wrapFlex {
-  width: 100%;
-  height: auto;
-  display: flex;
 }

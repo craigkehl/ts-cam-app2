@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 
-import { zoom } from '../../util/cam-http-requests';
+import { zoom } from '../../../util/cam-http-requests';
 import classes from './Slider.module.css';
 
 const Slider: React.FC<{ className: string }> = (props) => {
@@ -20,14 +20,14 @@ const Slider: React.FC<{ className: string }> = (props) => {
 
   return (
     <Fragment>
-      <label
-        className={`${classes.title} ${props.className}`}
+      {/* <label
+        className={`${classes.title}`}
         htmlFor='zoomSlider'
       >
         Zoom speed: {curValue.toString()}
-      </label>
+      </label> */}
       <input
-        className={classes.slider}
+        className={`${classes.slider}  ${props.className}`}
         type='range'
         id='zoomSlider'
         min='-7'
