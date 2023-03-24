@@ -5,9 +5,9 @@ import { useStore } from "../../../store/store"
 import { PresetState } from "../../../store/presets-store"
 import Preset from "./Preset"
 import { recallPreset } from "../../../util/cam-http-requests"
-import classes from "./PresetBtnGrp.module.css"
+import classes from "./PresetButtonsGroup.module.css"
 
-const PresetBtnGrp: React.FC<{
+const PresetButtonsGroup: React.FC<{
   // className?: string
   title?: string
   action?: string
@@ -68,4 +68,4 @@ const PresetBtnGrp: React.FC<{
   )
 }
 
-export default PresetBtnGrp
+export default PresetButtonsGroup

@@ -1,13 +1,13 @@
 import Stack from '@mui/material/Stack'
-import Card from "../components/UI/Card"
-import SourceSelect from '../components/projector/Source-Select';
-import BlankSwitch from "../components/projector/BlankSwitch";
-import MenuControl from "../components/projector/RemoteMenu";
-import Volume from '../components/projector/Volume'
-import RemoteKeys from "../components/projector/Remote-Keys"
+import Card from "../../components/UI/Card"
+import SourceSelect from '../../components/projector/Source-Select';
+import BlankSwitch from "../../components/projector/BlankSwitch";
+import MenuControl from "../../components/projector/RemoteMenu";
+import Volume from '../../components/projector/Volume'
+import RemoteKeys from "../../components/projector/Remote-Keys"
 
-import { useStore } from "../store/store";
-import { ProjectorState } from "../store/projector-store";
+import { useStore } from "../../store/store";
+import { ProjectorState } from "../../store/projector-store";
 
 import classes from './Projector.module.css'
 
@@ -18,7 +18,7 @@ const Projector = () => {
 
   return (
     <Card>
-      <div className={classes.headercontainer}>
+      <div className={classes.headerContainer}>
         <h3 className={classes.inline}>Projector</h3>
       </div>
       <SourceSelect />
