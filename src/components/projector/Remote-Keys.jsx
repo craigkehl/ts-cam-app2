@@ -12,7 +12,7 @@ import { useStore } from '../../store/store'
 import { projectorRequest } from '../../util/projector-http-request';
 
 export default function RemoteKeys() {
-  const [state, dispatch] = useStore();
+  const dispatch = useStore().dispatch;
   
   const onRemoteKeyHandler = (command) => {
     const remoteKeyCommand = `remote-key/${command}`
