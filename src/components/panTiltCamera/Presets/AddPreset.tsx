@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 
 import { useStore } from '../../../store/store';
+import Card from '../../UI/Card';
 import Input from '../../UI/Input';
 import Zoom from '../panTiltZoomControls/Slider';
 import PtzPad from '../panTiltZoomControls/TwoDimensionSlider';
@@ -22,16 +23,8 @@ const AddPreset: React.FC<{ className?: string }> = (props) => {
   };
 
   return (
-    <>
-      <h3 className={`${classes.h3} ${props.className}`}>Add Preset</h3>
-      {/* <p>Name and adjust to the camera before clicking "Add".</p> */}
-      <Zoom className={`${classes} ${props.className}`} />
-      <PtzPad
-        className={`${classes} ${props.className}`}
-        xMax='24'
-        yMax='20'
-        resolution={globalState.ptzSettings.resolution}
-      />
+    <Card>
+      <h3 className={`${classes.h3} ${props.className}`}>Add New Temporary Preset</h3>
       <form className={`${classes.form} ${props.className}`}>
         <Input
           className={`${classes.input} ${props.className}`}
@@ -46,7 +39,14 @@ const AddPreset: React.FC<{ className?: string }> = (props) => {
           + Add
         </button>
       </form>
-    </>
+      <Zoom className={`${classes} ${props.className}`} />
+      <PtzPad
+        className={`${classes} ${props.className}`}
+        xMax='24'
+        yMax='20'
+        resolution={globalState.ptzSettings.resolution}
+      />
+    </Card>
   );
 };
 

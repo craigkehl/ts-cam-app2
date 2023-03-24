@@ -6,8 +6,10 @@ type CardProps = {
  }
 
 const Card: React.FC<CardProps> = (props) => {
+  const propsClassName = props.className || ''
+  
   return (
-    <div className={`${classes.card} ${props.className}`}>{props.children}</div>
+    <div className={`${classes.card} ${classes[propsClassName]}`}>{props.children}</div>
 
   );
 };

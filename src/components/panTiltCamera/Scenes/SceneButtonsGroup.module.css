@@ -1,0 +1,10 @@
+.btnGrp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
+
+.btn {
+  flex: .5 .5 4rem;
+}

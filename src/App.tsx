@@ -12,7 +12,7 @@ import ConfigExtras from './pages/configure/config-extras';
 import Profile from './pages/Profile';
 import Projector from './pages/Projector';
 
-const App: React.FC<{ className?: string }> = (props) => {
+const App: React.FC<{}> = (props) => {
   return (
     <>
       <Layout />

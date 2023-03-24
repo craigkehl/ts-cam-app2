@@ -44,19 +44,19 @@ const configureStore = () => {
   initStore(actions, {
     scenes: [
       {
-        name: 'Live',
+        name: 'Live-Camera',
         isShow: true,
         description: 'Live camera feed',
         isCurrent: false,
       },
       {
-        name: 'Sacrament-Graphic',
+        name: 'Christ-Graphic',
         isShow: true,
         description: 'Picture of Christ with Sacrament background music',
         isCurrent: false,
       },
       {
-        name: 'Sacrament-Video',
+        name: 'Christ-Video',
         isShow: true,
         description: "Video of Christ's Atonement",
         isCurrent: false,

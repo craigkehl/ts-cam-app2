@@ -1,24 +1,12 @@
 .btnGrp {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 300px) {
-  .btnGrp {
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 420px) {
-  .btnGrp {
-    -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: repeat(4, 1fr);
-  }
+.btn {
+    flex: 1 1 4rem;
 }
 
 .hidden {

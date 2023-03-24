@@ -6,9 +6,9 @@ import ScenesIcon from '@mui/icons-material/BurstMode';
 import PtzIcon from '@mui/icons-material/ControlCamera';
 import ControlIcon from '@mui/icons-material/SettingsRemote';
 import PresetsIcon from '@mui/icons-material/Cameraswitch';
-import ExtrasIcon from '@mui/icons-material/Ballot';
+// import ExtrasIcon from '@mui/icons-material/Ballot';
 import MenuIcon from '@mui/icons-material/Menu';
-import ProfileIcon from '@mui/icons-material/Face';
+// import ProfileIcon from '@mui/icons-material/Face';
 import ExitIcon from '@mui/icons-material/ExitToApp';
 import SlideshowIcon from '@mui/icons-material/Slideshow';
 
@@ -23,11 +23,11 @@ const menuItems = [
     icon: SlideshowIcon,
     path: '/projector',
   },
-  {
-    name: 'Profile',
-    icon: ProfileIcon,
-    path: '/profile',
-  },
+  // {
+  //   name: 'Profile',
+  //   icon: ProfileIcon,
+  //   path: '/profile',
+  // },
   {
     name: 'Exit',
     icon: ExitIcon,
@@ -51,11 +51,11 @@ const configMenuItems = [
     icon: PtzIcon,
     path: '/config/ptz',
   },
-  {
-    name: 'Extra',
-    icon: ExtrasIcon,
-    path: '/config/extras',
-  },
+  // {
+  //   name: 'Extra',
+  //   icon: ExtrasIcon,
+  //   path: '/config/extras',
+  // },
 ];
 
 const TemporaryDrawer: React.FC = (props) => {

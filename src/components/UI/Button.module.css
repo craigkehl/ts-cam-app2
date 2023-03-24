@@ -1,4 +1,5 @@
 .button {
+  max-width: 10rem;
   position: relative;
   font: inherit;
   text-align: center;
@@ -15,7 +16,7 @@
 .button::before {
   content: '';
   float: left;
-  padding-top: 25%;
+  padding-top: 15%;
 }
 
 .button:focus {

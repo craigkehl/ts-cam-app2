@@ -1,21 +1,24 @@
-import React from 'react';
-
 import PresetVisibility from './Preset-visibility';
 import AddPreset from '../../../components/panTiltCamera/Presets/AddPreset';
 import Card from '../../../components/UI/Card';
 
-import classes from './Config-presets.module.css';
-
-const ConfigPrests: React.FC<{ className?: string }> = (props) => {
+const ConfigPresets: React.FC<{ className?: string }> = (props) => {
   return (
     <>
       <h1>Configure Presets</h1>
-      <PresetVisibility className={`${classes} ${props.className}`} />
-      <Card className={`${classes} ${props.className}`}>
-        <AddPreset className={`${classes} ${props.className}`} />
+      <PresetVisibility />
+      
+      <Card className='notice'>
+        <p>Added presets are temporary and only added to the device you add them to.</p>
+        <ol>
+          <li>Adjust the position and zoom desired for the preset.</li>
+          <li>Name the preset.</li>
+          <li>Click "Add"</li>
+        </ol>
       </Card>
+      <AddPreset />
     </>
   );
 };
 
-export default ConfigPrests;
+export default ConfigPresets;
