@@ -6,6 +6,7 @@ import { PresetState } from "../../../store/presets-store"
 import Preset from "./Preset"
 import { recallPreset } from "../../../util/cam-http-requests"
 import classes from "./PresetButtonsGroup.module.css"
+import CameraswitchIcon from '@mui/icons-material/Cameraswitch';
 
 const PresetButtonsGroup: React.FC<{
   // className?: string
@@ -62,9 +63,12 @@ const PresetButtonsGroup: React.FC<{
 
   return (
     <Card>
-      <h3 className={classes.title}>
-       {props.title}
-      </h3>
+      <div className={classes.iconHeader}>
+        <CameraswitchIcon />
+        <h3 className={classes.title}>
+        {props.title}
+        </h3>
+      </div>
       {presetList}
     </Card>
   )

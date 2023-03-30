@@ -50,15 +50,15 @@ const AddScene: React.FC<{ className?: string }> = (props) => {
         />
         <Input
           ref={descInputRef}
-          label='description'
+          label='Description'
           input={{
             id: 'description',
             type: 'text',
           }}
         />
-        <button type='button' onClick={addSceneHandler}>
-          + Add
-        </button>
+          <button type='button' onClick={addSceneHandler}>
+            + Add
+          </button>
       </form>
     </Card>
   );

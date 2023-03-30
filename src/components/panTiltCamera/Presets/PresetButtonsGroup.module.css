@@ -1,11 +1,13 @@
 .btnGrp {
-   display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(5rem, 1fr));
+  gap: .5rem;
+}
+
+.iconHeader {
+  display: flex;
   justify-content: flex-start;
-  margin: 0 auto;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #8b005d;
 }
-
-.btn {
-    flex: 1 1 4rem;
-}
-

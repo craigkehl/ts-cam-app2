@@ -1,7 +1,15 @@
-.input {
-  display: inline-block;
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 
-.input > label {
-  display: inline-block;
+.form div,
+button {
+  margin-right: 1rem;
+  margin-left: .5rem;
+}
+
+.form button {
+  margin-bottom: 0.5rem;
 }

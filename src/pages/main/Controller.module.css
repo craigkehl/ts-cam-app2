@@ -2,5 +2,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: #8b005d;
+  margin-bottom: 1rem;
+  color: #005d8b;
 }

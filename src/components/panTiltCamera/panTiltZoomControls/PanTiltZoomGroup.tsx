@@ -1,6 +1,7 @@
 import Card from '../../UI/Card';
 import Slider from './Slider';
 import TwoDimensionSlider from './TwoDimensionSlider';
+import ControlCameraIcon from '@mui/icons-material/ControlCamera';
 import { useStore } from '../../../store/store';
 import classes from './PanTiltZoomGroup.module.css';
 
@@ -13,9 +14,12 @@ const PanTiltZoomGroup: React.FC<{
   return (
     <Card
       className={`${classes.card ? classes.card : ''} ${classes['pan-tilt-card']} ${props.className}`}>
-       <h3 className={`${classes.title} ${props.className}`}>
-        Camera Zoom, Pan, and Tilt
-      </h3>
+      <div className={classes.iconHeader}>
+        <ControlCameraIcon />
+        <h3 className={`${classes.title} ${props.className}`}>
+          Camera Zoom, Pan, and Tilt
+        </h3>
+      </div>
       <Slider className={`${classes.zoom} ${props.className} zoom`} />
       <TwoDimensionSlider
                     className={`${classes['pan-tilt-pad']} ${props.className}`}
