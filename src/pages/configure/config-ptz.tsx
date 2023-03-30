@@ -9,7 +9,6 @@ const ConfigPtz: React.FC<{ className?: string }> = (props) => {
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const resolution = parseFloat(event.target.value);
-    console.log(resolution);
     dispatch('SET_RESOLUTION', resolution);
   };
 

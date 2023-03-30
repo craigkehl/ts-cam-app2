@@ -16,7 +16,8 @@ const PresetButtonsGroup: React.FC<{
   const [state, dispatch] = useStore()
   const presets: PresetState[] = state.presets
 
-  let showHiddenList = props.list === "showHidden" ? true : false
+  const showHidden = (props.list === "hidden")
+  const isConfigure = (props.action === "toggleShow")
 
   const recallPresetHandler = (id: number) => {
     switch (props.action) {
@@ -38,14 +39,15 @@ const PresetButtonsGroup: React.FC<{
         presets.length > 0 ? (
           presets.map(
             (preset: PresetState) =>
-              (showHiddenList ? !preset.isShow : preset.isShow) && (
+              (showHidden ? !preset.isShow : preset.isShow) && (
                 <Preset
-                  className={`${classes.btn} ${showHiddenList && classes.hidden}`}
+                  className={`${classes.btn} ${showHidden && classes.hidden}`}
                   key={preset.id}
                   id={preset.id}
                   name={preset.name}
                   isShow={preset.isShow}
                   isCurrent={preset.isCurrent}
+                  isConfigure={isConfigure}
                   onRecallPreset={() => recallPresetHandler(preset.id)}>
                   {preset.name}
                 </Preset>
