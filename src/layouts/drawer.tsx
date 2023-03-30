@@ -128,7 +128,7 @@ const TemporaryDrawer: React.FC = (props) => {
         <Button onClick={toggleDrawer(true)}>
           <MenuIcon />
         </Button>
-        <Drawer anchor={'right'} open={drawerOpen} onClose={toggleDrawer(false)}>
+        <Drawer anchor={'left'} open={drawerOpen} onClose={toggleDrawer(false)}>
           {list()}
         </Drawer>
       </React.Fragment>
