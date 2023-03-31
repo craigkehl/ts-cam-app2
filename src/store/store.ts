@@ -46,6 +46,4 @@ export const initStore = (userActions: {}, initialState: GlobalState) => {
     globalState = { ...globalState, ...initialState };
   }
   actions = { ...actions, ...userActions };
-  console.log('From initStore:');
-  console.log(actions);
 };

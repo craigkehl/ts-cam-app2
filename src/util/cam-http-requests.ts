@@ -2,7 +2,6 @@ const CAM_BASEURL: string =
   process.env.REACT_APP_CAM_BASEURL || 'http://localhost:4000';
 
 export const recallPreset = async (presetId: string) => {
-  console.log(`${CAM_BASEURL}/preset/${presetId}`);
   try {
     const response = await fetch(`${CAM_BASEURL}/preset/${presetId}`);
     if (!response.ok) {
@@ -34,7 +33,6 @@ export const setPreset = async (presetId: string) => {
 };
 
 export const zoom = async (speed: number) => {
-  console.log(`${CAM_BASEURL}/zoom/${speed.toString()}`);
   try {
     const response = await fetch(`${CAM_BASEURL}/zoom/${speed}`);
     if (!response.ok) {
@@ -48,7 +46,6 @@ export const zoom = async (speed: number) => {
 };
 
 export const move = async (pan: string, tilt: string) => {
-  console.log(`${CAM_BASEURL}/move/pan=${pan}&tilt=${tilt}`);
   try {
     const response = await fetch(`${CAM_BASEURL}/move/?pan=${pan}&tilt=${tilt}`);
     if (!response.ok) {
