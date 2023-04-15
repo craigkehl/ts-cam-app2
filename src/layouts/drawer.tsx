@@ -87,7 +87,7 @@ const TemporaryDrawer: React.FC = (props) => {
           const Icon = item.icon;
           return (
             <ListItem
-              button
+              button // TODO: Deprecated element
               key={item.name}
               onClick={() => navigate(item.path)}
             >
@@ -106,7 +106,7 @@ const TemporaryDrawer: React.FC = (props) => {
           const Icon = item.icon;
           return (
             <ListItem
-              button
+              button // TODO: Deprecated element
               key={item.name}
               onClick={() => navigate(item.path)}
             >

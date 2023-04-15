@@ -3,7 +3,7 @@ import React, { useState, Fragment } from 'react';
 import { zoom } from '../../../util/cam-http-requests';
 import classes from './Slider.module.css';
 
-const Slider: React.FC<{ className: string }> = (props) => {
+const Slider: React.FC<{ className?: string }> = (props) => {
   const [curValue, setCurValue] = useState(0);
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

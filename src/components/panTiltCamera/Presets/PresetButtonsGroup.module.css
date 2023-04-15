@@ -4,6 +4,11 @@
   gap: .5rem;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .iconHeader {
   display: flex;
   justify-content: flex-start;

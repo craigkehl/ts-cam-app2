@@ -1,0 +1,18 @@
+.sliders div {
+  margin: .1rem .5rem 2rem .5rem;
+
+}
+
+.sliders div,
+.sliders div input {
+  width: 90%;
+}
+
+.sliders div label {
+  display: block;
+}
+
+.sliders div input {
+  height: 40px;
+}
+

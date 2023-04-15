@@ -4,14 +4,14 @@ import { useStore } from '../../../store/store';
 import Card from '../../UI/Card';
 import Input from '../../UI/Input';
 import Zoom from '../panTiltZoomControls/Slider';
-import PtzPad from '../panTiltZoomControls/TwoDimensionSlider';
-
+import PtzPad from '../panTiltZoomControls/PtzPad';
 import classes from './AddPreset.module.css';
 
-const AddPreset: React.FC<{ className?: string }> = (props) => {
-  const globalState = useStore()[0];
+type Props = { className?: string }
 
-  const dispatch = useStore()[1];
+const AddPreset: React.FC = ({className}: Props) => {
+  const [globalState, dispatch] = useStore();
+
   const nameInputRef = useRef<HTMLInputElement>(null);
   // const idInputRef = useRef<HTMLInputElement>(null);
 
@@ -22,12 +22,10 @@ const AddPreset: React.FC<{ className?: string }> = (props) => {
     }
   };
 
-  return (
-    <Card>
-      <h3 className={`${classes.h3} ${props.className}`}>Add new Preset to this device</h3>
-      <form className={`${classes.form} ${props.className}`}>
+  const addPreset = (
+    <form className={classes.form} >
         <Input
-          className={`${classes.input} ${props.className}`}
+          className={classes.input} 
           ref={nameInputRef}
           label='Name'
           input={{
@@ -39,9 +37,14 @@ const AddPreset: React.FC<{ className?: string }> = (props) => {
           + Add
         </button>
       </form>
-      <Zoom className={`${classes} ${props.className}`} />
+  )
+
+  return (
+    <Card className={className}>
+      <h3 className={classes.h3} >Add new Preset to this device</h3>
+      {addPreset}
+      <Zoom />
       <PtzPad
-        className={`${classes} ${props.className}`}
         xMax='24'
         yMax='20'
         resolution={globalState.ptzSettings.resolution}

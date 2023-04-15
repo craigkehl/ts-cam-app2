@@ -7,12 +7,16 @@ import Preset from "./Preset"
 import { recallPreset } from "../../../util/cam-http-requests"
 import classes from "./PresetButtonsGroup.module.css"
 import CameraswitchIcon from '@mui/icons-material/Cameraswitch';
+import SettingsIcon from '@mui/icons-material/Settings';
+import CloseConfig from '@mui/icons-material/CancelPresentation';
 
 const PresetButtonsGroup: React.FC<{
   // className?: string
   title?: string
   action?: string
   list?: string
+  onConfig?: any
+  modal?: string
 }> = (props) => {
   const [state, dispatch] = useStore()
   const presets: PresetState[] = state.presets
@@ -33,6 +37,22 @@ const PresetButtonsGroup: React.FC<{
         return
     }
   }
+
+  const header = (
+    <div className={classes.header}>
+        <div className={classes.iconHeader}>
+          <CameraswitchIcon />
+          <h3 className={classes.title}>
+          {props.title}
+          </h3>
+        </div>
+        <span
+          onClick={props.onConfig}
+        >
+          {((props.modal === 'Presets') && <CloseConfig className={classes.iconHeader} />) || <SettingsIcon className={classes.iconHeader} />}
+        </span>
+      </div>
+  )
 
   const presetList = (
     <div className={classes.btnGrp}>
@@ -63,12 +83,7 @@ const PresetButtonsGroup: React.FC<{
 
   return (
     <Card>
-      <div className={classes.iconHeader}>
-        <CameraswitchIcon />
-        <h3 className={classes.title}>
-        {props.title}
-        </h3>
-      </div>
+      {header}
       {presetList}
     </Card>
   )
