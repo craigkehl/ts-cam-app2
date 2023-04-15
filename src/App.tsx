@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './layouts/drawer';
-import Welcome from './pages/main/Welcome';
+// import Welcome from './pages/main/Welcome';
 import Controller from './pages/main/Controller';
 import ConfigScenes from './pages/configure/config-scenes';
 import ConfigPresets from './pages/configure/Config-presets';

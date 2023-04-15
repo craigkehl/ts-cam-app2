@@ -79,6 +79,12 @@ const configureStore = () => {
         description: 'Speaker with a small computer feed window',
         isCurrent: false,
       },
+      {
+        name: 'Roku',
+        isShow: false,
+        description: 'Airplay & Miracast',
+        isCurrent: false,
+      },
     ],
   });
 };

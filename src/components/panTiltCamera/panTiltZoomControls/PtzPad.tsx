@@ -102,7 +102,7 @@ function TwoDimensionSlider(props: TwoDimensionSliderProps) {
           type: "SET_RATE",
           payload: {
             x: Number(xValueBounded),
-            y: Number(yValueBounded),
+            y: Number(yValueBounded * -1),
           }
         })
       }
