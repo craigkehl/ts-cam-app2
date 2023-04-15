@@ -1,10 +1,10 @@
 .button {
-  max-width: 10rem;
+  /* max-width: 10rem; */
   position: relative;
   font: inherit;
   text-align: center;
   padding: 10px 3px;
-  margin: 4px;
+  /* margin: 4px; */
   border: 1px solid #8b005d;
   color: white;
   background: #8b005d;

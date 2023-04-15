@@ -24,7 +24,7 @@ const AddPreset: React.FC<{ className?: string }> = (props) => {
 
   return (
     <Card>
-      <h3 className={`${classes.h3} ${props.className}`}>Add New Temporary Preset</h3>
+      <h3 className={`${classes.h3} ${props.className}`}>Add new Preset to this device</h3>
       <form className={`${classes.form} ${props.className}`}>
         <Input
           className={`${classes.input} ${props.className}`}

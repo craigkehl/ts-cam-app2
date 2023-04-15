@@ -1,22 +1,14 @@
+:root  { --scrollbar-width: calc((100vw - 100%) + 1rem)}
+
 .card {
-  width: calc(100% - 2rem);
+  width: calc(100% - var(--scrollbar-width));
   overflow: hidden;
   padding: 0.5rem;
-  margin: 1rem 0.3rem;
+  margin: 1rem auto;
   box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
   background-color: white;
 }
 
-@media screen and (min-width: 450px) {
-  .card {
-    margin: 1rem auto;
-  }
-}
 
-.notice {
-  width: fit-content;
-  background-color: lemonchiffon;
-  margin: 2rem auto .5rem .5rem;
-  /* font-weight: bold; */
-}
+

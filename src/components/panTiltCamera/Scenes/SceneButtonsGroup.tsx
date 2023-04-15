@@ -2,6 +2,7 @@ import React from 'react';
 
 import Card from '../../UI/Card';
 import SceneButton from './SceneButton';
+import ScenesIcon from '@mui/icons-material/BurstMode';
 import { useStore } from '../../../store/store';
 import { SceneState } from '../../../store/scenes-store';
 import { recallScenes } from '../../../util/obs-http-requests';
@@ -11,6 +12,7 @@ const SceneButtonsGroup: React.FC<{
   className?: string;
   action?: string;
   list?: string;
+  title?: string;
 }> = (props) => {
   const [state, dispatch] = useStore();
   const scenes: SceneState[] = state.scenes;
@@ -33,9 +35,12 @@ const SceneButtonsGroup: React.FC<{
 
   const sceneList = (
     <>
-      <h3 className={`${classes.title} ${props.className || ''}`}>
-        {showHiddenList ? 'Hidden ' : 'Current '} Scenes
-      </h3>
+      <div className={classes.iconHeader}>
+        <ScenesIcon />
+        <h3 className={`${classes.title} ${props.className || ''}`}>
+          {showHiddenList ? 'Hidden ' : 'Current '} {props.title}
+        </h3>
+      </div>
       <div className={`${classes.btnGrp} ${props.className || ''}`}>
         {scenes.length > 0 ? (
           scenes.map(

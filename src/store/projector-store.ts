@@ -11,11 +11,9 @@ const configureStore = () => {
   const actions = {
     TOGGLE_SHOW_CONTROL: (curState: GlobalState) => {
       const newState = !curState.showProjector
-      console.log('The new state is: ', newState)
       return { showProjector: newState }
     },
     CURRENT_INPUT: (curState: GlobalState, projectorInput: ProjectorState['projectorInput']) => {
-      console.log('the current input is ', projectorInput)
       return { projectorInput: projectorInput}
     },
     PROJECTOR_SHOW_MENU_KEYS: (curState: GlobalState, projectorShowMenuKeys: ProjectorState['projectorShowMenuKeys']) => {

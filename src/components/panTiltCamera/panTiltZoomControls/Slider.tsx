@@ -14,18 +14,10 @@ const Slider: React.FC<{ className: string }> = (props) => {
   const changeCompleteHandler = () => {
     setCurValue(0);
     zoom(0x00);
-    console.log('Change Complete');
-    console.log(curValue);
   };
 
   return (
     <Fragment>
-      {/* <label
-        className={`${classes.title}`}
-        htmlFor='zoomSlider'
-      >
-        Zoom speed: {curValue.toString()}
-      </label> */}
       <input
         className={`${classes.slider}  ${props.className}`}
         type='range'

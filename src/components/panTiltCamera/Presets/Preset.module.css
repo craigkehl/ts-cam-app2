@@ -5,3 +5,13 @@
   border-color: #022d43;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+
+.addIcon {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: -0.5rem;
+  margin-left: auto;
+  margin-top: -1rem;
+  fill: currentColor;
+}
