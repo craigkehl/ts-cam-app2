@@ -27,6 +27,8 @@ function TwoDimensionSlider (props: TwoDimensionSliderProps)  {
 
   const handleMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
     setIsMouseDown(false);
+    setX(0)
+    setY(0)
   };
    
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement> | any ) => {
@@ -54,7 +56,7 @@ function TwoDimensionSlider (props: TwoDimensionSliderProps)  {
       const xScale = xRange / width;
       const yScale = yRange / height;
       const xValue = ((mouseX - centerX) * xScale).toFixed(0);
-      const yValue = ((centerY - mouseY) * yScale).toFixed(0);
+      const yValue = ((centerY - mouseY) * yScale * -1).toFixed(0);
   
       setX(Number(xValue));
       setY(Number(yValue));
@@ -68,6 +70,8 @@ function TwoDimensionSlider (props: TwoDimensionSliderProps)  {
   
   const handleTouchEnd = useCallback(() => {
     setIsMouseDown(false);
+    setX(0)
+    setY(0)
   }, []);
   
   useEffect(() => {
