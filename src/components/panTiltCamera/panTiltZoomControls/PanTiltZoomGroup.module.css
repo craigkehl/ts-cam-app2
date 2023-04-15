@@ -4,3 +4,20 @@
   align-items: center;
   color: #8b005d;
 }
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  color: #8b005d;
+}
+
+.form div,
+button {
+  margin-right: 1rem;
+  margin-left: .5rem;
+}
+
+.form button {
+  margin-bottom: 0.5rem;
+}
