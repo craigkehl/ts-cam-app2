@@ -25,7 +25,7 @@ const App: React.FC<{}> = (props) => {
           <Route path='/config/scenes' element={<ConfigScenes />} />
           <Route path='/config/ptz' element={<ConfigPTZ />} />
           <Route path='/config/extras' element={<ConfigExtras />} />
-          <Route path='/' element={<Welcome />} />
+          <Route path='/' element={<Controller />} />
         </Routes>
       </main>
     </>

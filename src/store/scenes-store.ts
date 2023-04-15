@@ -50,7 +50,7 @@ const configureStore = () => {
         isCurrent: false,
       },
       {
-        name: 'Christ-Graphic',
+        name: 'Christ-Pic',
         isShow: true,
         description: 'Picture of Christ with Sacrament background music',
         isCurrent: false,

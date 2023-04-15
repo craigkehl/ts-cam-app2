@@ -44,7 +44,7 @@ const configureStore = () => {
 
       const newPreset: PresetState = {
         name,
-        isShow: false,
+        isShow: true,
         isCurrent: false,
         id: newId,
       };
