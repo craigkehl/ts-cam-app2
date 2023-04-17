@@ -58,13 +58,13 @@ const SourceSelect = (props: Props) => {
         variant={(selectedInput === 'hdmi') ? 'contained': 'outlined'}
         onClick={inputHandler.bind(this, 'hdmi')}
       >
-        HDMI
+        Roku
       </Button>
       <Button startIcon= {<SettingsInputAntennaIcon />}
         variant={(selectedInput === 'roku') ? 'contained': 'outlined'}
         onClick={inputHandler.bind(this, 'roku')}
       >
-        Roku
+        HDMI
       </Button>
       {(selectedInput !== 'off') && <Button startIcon={<PowerOffIcon />}
         variant='outlined'
