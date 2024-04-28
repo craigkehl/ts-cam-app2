@@ -1,5 +1,5 @@
 const CAM_BASEURL: string =
-  process.env.REACT_APP_CAM_BASEURL || 'http://localhost:4000';
+  process.env.REACT_APP_CAM_BASEURL || 'http://localhost:4000/api';
 
 export const recallPreset = async (presetId: string) => {
   try {

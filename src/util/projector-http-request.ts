@@ -1,5 +1,5 @@
 const PROJECTOR_BASEURL: string =
-  process.env.REACT_APP_PROJECTOR_BASEURL || 'http://localhost:4000';
+  process.env.REACT_APP_PROJECTOR_BASEURL || 'http://localhost:4000/api';
 
 export async function projectorRequest(command: string) {
     try {
