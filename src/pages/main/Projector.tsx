@@ -1,36 +1,46 @@
+import { useEffect } from 'react'
 import Stack from '@mui/material/Stack'
 import Card from "../../components/UI/Card"
 import SourceSelect from '../../components/projector/Source-Select';
 import BlankSwitch from "../../components/projector/BlankSwitch";
-import MenuControl from "../../components/projector/RemoteMenu";
-import Volume from '../../components/projector/Volume'
-import RemoteKeys from "../../components/projector/Remote-Keys"
 
 import { useStore } from "../../store/store";
 import { ProjectorState } from "../../store/projector-store";
+import { projectorRequest } from '../../util/projector-http-request';
 
 import classes from './Projector.module.css'
 
+const POLL_INTERVAL_MS = 10000
+
 const Projector = () => {
-  const [ state ] = useStore()
+  const [state, dispatch] = useStore()
   const input: ProjectorState['projectorInput'] = state.projectorInput
   const inputSelected = (input !== 'off')
 
+  useEffect(() => {
+    const fetchStatus = async () => {
+      const response = await projectorRequest('status')
+      if (!response?.ok) return
+      const data = await response.json()
+
+      const source: ProjectorState['projectorInput'] =
+        data.power === 'on' ? 'hdmi' : 'off'
+
+      dispatch('CURRENT_INPUT', source)
+    }
+
+    fetchStatus()
+    const interval = setInterval(fetchStatus, POLL_INTERVAL_MS)
+    return () => clearInterval(interval)
+  }, [])  // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <Card>
-      <div className={classes.headerContainer}>
+      <Stack direction="row" alignItems="center" spacing={2}>
         <h3 className={classes.inline}>Projector</h3>
-      </div>
-      <SourceSelect />
-      {inputSelected && (
-        <Stack alignContent='flex-start'>
-          <Volume min={0} max={20} defaultValue={17} />
-          <Stack direction='row' justifyContent='center'>
-            <BlankSwitch />
-            <MenuControl />
-          </Stack>
-          {state.projectorShowMenuKeys && <RemoteKeys />}
-        </Stack>)}
+        <SourceSelect />
+        {inputSelected && <BlankSwitch />}
+      </Stack>
     </Card>
   )
 }

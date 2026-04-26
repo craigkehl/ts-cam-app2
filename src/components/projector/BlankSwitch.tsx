@@ -33,8 +33,8 @@ export default function BlankSwitch() {
           onChange={onBlankChangeHandler}
           checked={blankScreen}
         />}
-      label="Blank Screen"
-      labelPlacement="top"
+      label="Blank"
+      labelPlacement="end"
     />
   );
 }

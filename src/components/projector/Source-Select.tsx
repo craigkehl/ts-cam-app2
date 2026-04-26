@@ -1,78 +1,48 @@
 import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Alert from '@mui/material/Alert';
 import SettingsInputHdmiIcon from '@mui/icons-material/SettingsInputHdmi';
-import SettingsInputAntennaIcon from '@mui/icons-material/SettingsInputAntenna';
 import PowerOffIcon from '@mui/icons-material/PowerOff';
 
 import { useStore } from '../../store/store'
 import { ProjectorState } from '../../store/projector-store';
 import { projectorRequest } from '../../util/projector-http-request';
 
-type Props = {
-}
-
-const SourceSelect = (props: Props) => {
+const SourceSelect = () => {
   const [state, dispatch] = useStore();
   const selectedInput: ProjectorState['projectorInput'] = state.projectorInput
+  const isOn = selectedInput !== 'off'
 
-  const [projectorOn, setProjectorOn] = useState(false)
-  
-  const inputHandler = async (input: ProjectorState['projectorInput']) => {
-    switch (input) {
-      case 'off':
-        projectorRequest('power/off')
-        dispatch('CURRENT_INPUT', input)
-        setProjectorOn(false)
-        break;
+  const [error, setError] = useState<string | null>(null)
 
-      case 'hdmi':
-      case 'roku':
-        if (!projectorOn) {
-          const response = await projectorRequest('power/on')
-          if (response && response.ok) {
-            setProjectorOn(true)
-            dispatch('CURRENT_INPUT', input)
-            projectorRequest(`source/${input}`)
-          }
-        } else {
-          dispatch('CURRENT_INPUT', input)
-          projectorRequest(`source/${input}`)
-        }
-        break;
-    
-      default:
-        break;
+  const toggleHandler = async () => {
+    setError(null)
+    if (isOn) {
+      projectorRequest('power/off')
+      dispatch('CURRENT_INPUT', 'off')
+    } else {
+      const response = await projectorRequest('power/on')
+      if (response?.ok) {
+        dispatch('CURRENT_INPUT', 'hdmi')
+        projectorRequest('source/roku')
+      } else {
+        setError('Projector did not respond to power on. Check the connection to 192.168.108.11.')
+      }
     }
   }
-  
+
   return (
-    <Stack
-      direction="row"
-      spacing={1}
-      aria-label="source primary button group"
-      sx={{ mb: 1 }}
-    >
+    <Stack spacing={1} alignItems="flex-start">
       <Button
-        startIcon={<SettingsInputHdmiIcon />}
-        variant={(selectedInput === 'hdmi') ? 'contained': 'outlined'}
-        onClick={inputHandler.bind(this, 'hdmi')}
+        startIcon={isOn ? <PowerOffIcon /> : <SettingsInputHdmiIcon />}
+        variant={isOn ? 'contained' : 'outlined'}
+        onClick={toggleHandler}
       >
-        Roku
+        {isOn ? 'Off' : 'On'}
       </Button>
-      <Button startIcon= {<SettingsInputAntennaIcon />}
-        variant={(selectedInput === 'roku') ? 'contained': 'outlined'}
-        onClick={inputHandler.bind(this, 'roku')}
-      >
-        HDMI
-      </Button>
-      {(selectedInput !== 'off') && <Button startIcon={<PowerOffIcon />}
-        variant='outlined'
-        onClick={inputHandler.bind(this, 'off')}
-      >
-        Off
-      </Button>}
-  </Stack>
+      {error && <Alert severity="error">{error}</Alert>}
+    </Stack>
   )
 }
 
