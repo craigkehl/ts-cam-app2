@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './layouts/drawer';
 // import Welcome from './pages/main/Welcome';
@@ -26,6 +26,7 @@ const App: React.FC<{}> = (props) => {
           <Route path='/config/ptz' element={<ConfigPTZ />} />
           <Route path='/config/extras' element={<ConfigExtras />} />
           <Route path='/' element={<Controller />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
       </main>
     </>
