@@ -10,3 +10,17 @@
   border-color: #022d43;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+.btn.requested {
+  opacity: 0.55;
+  cursor: wait;
+}
+.btn.confirmed {
+  background: #28a745;
+  border-color: #1e7e34;
+  color: #fff;
+}
+.btn.failed {
+  background: #dc3545;
+  border-color: #bd2130;
+  color: #fff;
+}

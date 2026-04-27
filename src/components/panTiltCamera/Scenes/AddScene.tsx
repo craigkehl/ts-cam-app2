@@ -27,6 +27,7 @@ const AddScene: React.FC<{ className?: string }> = (props) => {
           description,
           isShow: false,
           isCurrent: false,
+          requestStatus: 'idle',
         };
         dispatch('ADD_SCENE', newScene);
       } else {

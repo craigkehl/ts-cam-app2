@@ -1,7 +1,28 @@
-.iconHeader {
+.pageHeader {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+}
+.iconHeader {
+  display: flex;
+  align-items: center;
   color: #005d8b;
+}
+.newMeetingBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #005d8b;
+  border-radius: 4px;
+  background: transparent;
+  color: #005d8b;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.newMeetingBtn:hover {
+  background: #005d8b;
+  color: #fff;
 }

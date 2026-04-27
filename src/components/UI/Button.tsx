@@ -1,15 +1,19 @@
 import React from 'react'
 import classes from './Button.module.css'
 
-type ButtonProps = { 
-  className: string, 
+type ButtonProps = {
+  className: string,
   children: React.ReactNode,
-  onClick: () => void 
+  onClick: () => void,
+  disabled?: boolean,
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
   return (
-    <span className={`${classes.button} ${props.className}`} onClick={props.onClick}>
+    <span
+      className={`${classes.button} ${props.className}${props.disabled ? ` ${classes.disabled}` : ''}`}
+      onClick={props.disabled ? undefined : props.onClick}
+    >
       {props.children}
     </span>
   )
