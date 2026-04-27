@@ -8,11 +8,13 @@ import configurePresetStore from "./store/presets-store"
 import configurePtzStore from "./store/ptz-store"
 import configureSceneStore from "./store/scenes-store"
 import configureProjectorStore from "./store/projector-store"
+import configureSwitcherStore from "./store/switcher-store"
 
 configurePresetStore()
 configurePtzStore()
 configureSceneStore()
 configureProjectorStore()
+configureSwitcherStore()
 
 const root = ReactDOM.createRoot(document.getElementById("root")!)
 root.render(

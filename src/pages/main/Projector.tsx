@@ -3,10 +3,12 @@ import Stack from '@mui/material/Stack'
 import Card from "../../components/UI/Card"
 import SourceSelect from '../../components/projector/Source-Select';
 import BlankSwitch from "../../components/projector/BlankSwitch";
+import SwitcherInputButtons from '../../components/projector/SwitcherInputButtons';
 
 import { useStore } from "../../store/store";
 import { ProjectorState } from "../../store/projector-store";
 import { projectorRequest } from '../../util/projector-http-request';
+import { getSwitcherStatus } from '../../util/switcher-http-requests';
 
 import classes from './Projector.module.css'
 
@@ -29,8 +31,21 @@ const Projector = () => {
       dispatch('CURRENT_INPUT', source)
     }
 
+    const fetchSwitcherStatus = async () => {
+      const data = await getSwitcherStatus()
+      if (data?.input != null) {
+        dispatch('SYNC_SWITCHER_INPUT', data.input)
+      }
+    }
+
     fetchStatus()
-    const interval = setInterval(fetchStatus, POLL_INTERVAL_MS)
+    fetchSwitcherStatus()
+
+    const interval = setInterval(() => {
+      fetchStatus()
+      fetchSwitcherStatus()
+    }, POLL_INTERVAL_MS)
+
     return () => clearInterval(interval)
   }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -41,6 +56,7 @@ const Projector = () => {
         <SourceSelect />
         {inputSelected && <BlankSwitch />}
       </Stack>
+      <SwitcherInputButtons />
     </Card>
   )
 }
