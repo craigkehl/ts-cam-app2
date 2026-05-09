@@ -12,7 +12,7 @@ import { getSwitcherStatus } from '../../util/switcher-http-requests';
 
 import classes from './Projector.module.css'
 
-const POLL_INTERVAL_MS = 10000
+const POLL_INTERVAL_MS = 3000
 
 const Projector = () => {
   const [state, dispatch] = useStore()

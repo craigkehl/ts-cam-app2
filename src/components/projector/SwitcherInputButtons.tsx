@@ -80,8 +80,13 @@ const SwitcherInputButtons: React.FC = () => {
       {INPUTS.map(({ num, label }) => {
         const isActive = switcherInput === num;
         const isRequested = switcherRequested === num && switcherStatus === 'requested';
+        // confirmed uses switcherInput (switcherRequested was cleared on confirm)
+        // requested/failed use switcherRequested (still set)
         const statusClass =
-          switcherRequested === num ? classes[switcherStatus] ?? '' : '';
+          switcherStatus === 'confirmed' && switcherInput === num ? classes.confirmed :
+          switcherStatus === 'failed' && switcherRequested === num ? classes.failed :
+          switcherRequested === num && switcherStatus === 'requested' ? classes.requested :
+          '';
 
         return (
           <Button
