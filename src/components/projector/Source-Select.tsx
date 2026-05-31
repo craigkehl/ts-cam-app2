@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
@@ -15,6 +15,14 @@ const SourceSelect = () => {
   const isOn = selectedInput !== 'off'
 
   const [error, setError] = useState<string | null>(null)
+  const [projHost, setProjHost] = useState<string>('the projector')
+
+  useEffect(() => {
+    projectorRequest('config')
+      .then(res => res?.json())
+      .then(data => { if (data?.host) setProjHost(data.host) })
+      .catch(() => {})
+  }, [])
 
   const toggleHandler = async () => {
     setError(null)
@@ -27,7 +35,7 @@ const SourceSelect = () => {
         dispatch('CURRENT_INPUT', 'hdmi')
         projectorRequest('source/roku')
       } else {
-        setError('Projector did not respond to power on. Check the connection to 192.168.108.11.')
+        setError(`Projector did not respond to power on. Check the connection to ${projHost}.`)
       }
     }
   }
